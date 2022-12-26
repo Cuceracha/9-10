@@ -1,0 +1,517 @@
+var
+  a: array[1..8,1..8] of integer;
+  b: array[1..8] of integer;
+  i,j,s,min,sum:integer;
+  begin
+   randomize;
+ 
+for i:=1 to 8 do begin
+for j:=1 to 8 do begin
+ 
+a[i,j]:=random(25)-3;
+end;
+end;
+for i:=1 to 8 do
+  writeln(a[i]);
+
+for i:=1 to 8 do
+  begin
+  
+   
+    min:=a[i].min;
+    b[i]:=min
+    
+  end;
+  writeln('массив 2 равен: ',b);
+  sum:= round(b.sum/8);
+  for i:=1 to 8 do
+    if sum = b[i] then begin
+      writeln('Массив имеет среднее арифметическое: ',sum);
+      break;
+      end
+  else
+    begin
+    writeln('Массив не имеет среднее арифметического: ');
+  break;
+  end;
+end.
+var a, b, c, y,k, ii, maxim: integer;
+mas: array[1..8, 1..8] of integer;
+minus: array[1..8] of integer;
+begin
+  for var l:= 1 to 8 do 
+  minus[l]:=0;
+  writeln('Введите элементы массива ');
+  for var i:=1 to 8 do
+    begin
+    write('Строка ', i, ' ');
+    for var j:=1 to 8 do
+  begin
+    read(a);
+    mas[i,j]:= a;
+  end;
+  end;
+    for var i:=1 to 8 do
+    begin
+    k:=0;
+    // находим максимум
+    maxim:=mas[i].max;
+  for var j:=1 to 8 do
+  begin
+    if maxim = mas[i, j] then begin
+      k:= k + 1;
+      end;
+  end;
+  if k = 1 then begin minus[i]:= 1; end
+  else begin
+    minus[i]:= -1;
+  end;
+  // конец максимума
+  end;
+  write(minus)
+end.
+var a, b, c, y,k, ii, maxim: integer;
+mas: array[1..8, 1..8] of integer;
+minus: array[1..8] of integer;
+begin
+type mass=array[1..10] of integer;
+var
+  ii, a: integer;
+  mas: mass;
+
+function pr(n:mass): integer;
+var
+  i, p: integer;
+begin
+  p := 1;
+  for i := 1 to 10 do
+    if n[i] mod 2 = 0 then
+      begin
+      p := p * n[i];
+      end;
+  pr := p;
+end;
+
+begin
+  for ii := 1 to 10 do
+  begin
+    read (a);
+    mas[ii] := a;
+  end;
+  write (pr(mas));
+
+  end.
+type mass=array[1..10] of integer;
+var
+  ii,a: integer;
+  mas: mass;
+
+procedure m(n:mass  ) ;
+var
+  i:integer;
+  max,nomer,min,max2:integer;
+begin
+  
+max:=n[1];
+for i := 1 to 10 do
+  begin
+    
+    if n[i]>max  then
+      max:=n[i];
+    
+  end;
+ for i:=1 to 10 do
+   begin
+  if n[i] = max then
+    nomer:=i;
+  
+    
+    
+end;
+min:=abs(n[1]);
+for i:=1 to 10 do
+begin
+  if abs(n[i])<min  then
+      min:=abs(n[i]);
+  end;
+   for i:=1 to 10 do
+   begin
+   if n[i]<0 then
+     begin
+  max2:=n[i];
+   break;
+   end;
+   end;
+  for i:=1 to 10 do
+   begin
+   if n[i]<0 then
+      if n[i]>max2 then
+        max2:=n[i];
+      end;
+  writeln('Максимальрный элемент: ',max);
+  writeln('номер этого элемента: ',nomer);
+  writeln('Минимальный по модулю: ',min);
+  writeln('Максимальный отрицательный элемент: ',max2);
+end;
+
+begin
+  write('заполните массив 10 элементами: ');
+  for ii := 1 to 10 do
+  begin
+    read (a);
+    mas[ii] := a;
+  end;
+ m(mas)
+
+  end.
+type mass = array[1..10] of integer;
+var a, b, c, y, ii: integer;
+mas: mass;
+function pol(n:mass): integer;
+begin
+  for var i:= 1 to 10 do
+  begin
+    if n[i] > 0 then
+    begin
+      pol:= i;
+      break
+      end
+    else
+      pol:= 0
+  end;
+end;
+function jip(n:mass): integer;
+begin
+  for var i:= 1 to 10 do
+  begin
+    if n[i] < 0 then
+    begin
+      jip:= i;
+      end
+  end;
+end;
+begin
+  write('Введите элементы массива ');
+  for ii:=1 to 10 do
+  begin
+    read(a);
+    mas[ii]:= a;
+  end;
+  b:= pol(mas);
+  y:= jip(mas);
+  if b > 0 then
+    println('Номер первого положительного элемента: ', b)
+  else begin
+    println('Нет положительных элементов');
+    end;
+  if y > 0 then begin
+    println('Номер последнего отрицательного элемента: ', y);
+    end
+  else begin
+    println('Нет отрицательных элементов')
+    end;
+end.
+type mass=array[1..10] of integer;
+var
+  ii,a: integer;
+  mas,mas1: mass;
+
+procedure m(n,n1:mass  ) ;
+var
+  i:integer;
+  s,s1:integer;
+begin
+  for i:=1 to 10 do
+  begin
+    if n[i]>0 then
+      s:=s+n[i]
+  end;
+  for i:=1 to 10 do
+  begin
+    if n1[i]>0 then
+      s1:=s1+n1[i]
+  end;
+  if s < s1 then
+  begin
+    for i:=1 to 10 do
+      n[i]:=n[i]*10;
+  end
+  else
+    for i:=1 to 10 do
+      n1[i]:=n1[i]*10;
+  writeln(n);
+writeln(n1);
+end;
+
+begin
+  write('заполните 1 массив 10 элементами: ');
+  for ii := 1 to 10 do
+  begin
+    read (a);
+    mas[ii] := a;
+  end;
+  write('заполните 2 массив 10 элементами: ');
+  for ii := 1 to 10 do
+  begin
+    read (a);
+    mas1[ii] := a;
+  end;
+ m(mas,mas1)
+
+  end.
+type
+  mass = array[1..10] of integer;
+
+var
+  ii, a: integer;
+  mas, mas1: mass;
+
+procedure m(n, n1: mass);
+var
+  i, iii, kol, job: integer;
+  perv, min, perv1, max, nomer: integer;
+begin
+  for i := 1 to 10 do
+  begin
+    if n[i] mod 5 = 0  then
+    begin
+      perv := i;
+      break;
+    end;
+    end;
+    for i := 1 to 10 do
+      begin
+    if n1[i] mod 5 = 0  then
+    begin
+      perv1 := i;
+      break;
+    end;
+  end;
+  if perv = perv1 then
+    begin
+    max := n[1];
+    for iii := 2 to 10 do
+    begin
+      if n[iii] > max then
+      begin
+        max := n[iii];
+        nomer := iii;
+      end;
+    end;
+    n[nomer] := 0;
+    //----------------------------------
+    min:=n1[1];
+    for iii:=2 to 10 do
+      begin
+      if n1[i] < min then
+        end;
+     max := n1[1];
+    for iii := 2 to 10 do
+    begin
+      if n1[iii] > max  then
+      begin
+        max := n1[iii];
+        nomer := iii;
+      end;
+    end;
+    n1[nomer] := 0;
+    min:=n[1];
+    for iii:=2 to 10 do
+      begin
+      if n[i] < min then
+        end;
+  end
+  else begin
+  if perv < perv1 then
+  begin
+    max := n[1];
+    for iii := 2 to 10 do
+    begin
+      if n[iii] > max then
+      begin
+        max := n[iii];
+        nomer := iii;
+      end;
+    end;
+    n[nomer] := 0;
+    //----------------------------------
+    job:=n1[1];
+    for iii:=2 to 10 do
+      begin
+      if n1[iii] < job then begin
+        min:=iii;
+      job:= n[iii];
+      end;
+        end;
+    for kol:=min+1 to 10 do begin
+      n1[kol]:= n1[kol]*2
+      end;
+     end
+     
+    else
+  begin
+    max := n1[1];
+    for iii := 2 to 10 do
+    begin
+      if n1[iii] > max  then
+      begin
+        max := n1[iii];
+        nomer := iii;
+      end;
+    end;
+    n1[nomer] := 0;
+    job:=n[1];
+    for iii:=2 to 10 do
+      begin
+      if n[iii] < job then begin
+        min:=iii;
+        job:= n[iii];
+      end;
+        end;
+    for kol:=min+1 to 10 do begin
+      n[kol]:= n[kol]*2
+      end;
+  end;
+  end;
+  
+  writeln(n);
+  writeln(n1);
+end;
+
+begin
+  write('заполните 1 массив 10 элементами: ');
+  for ii := 1 to 10 do
+  begin
+    read(a);
+    mas[ii] := a;
+  end;
+  write('заполните 2 массив 10 элементами: ');
+  for ii := 1 to 10 do
+  begin
+    read(a);
+    mas1[ii] := a;
+  end;
+  m(mas, mas1); 
+end.
+var
+  a, b, c, y, ii: integer;
+  mas: array[1..6, 1..8] of integer;
+  minus: array[1..6] of integer;
+
+begin
+  for var k := 1 to 6 do 
+    minus[k] := 0;
+  randomize;
+  
+  for var i := 1 to 6 do
+  begin
+    for var j := 1 to 8 do
+    begin
+      
+      mas[i, j] := random(25) - 3;
+    end;
+  end;
+  writeln('1 массив:');
+  writeln('');
+  for var i := 1 to 6 do
+    writeln(mas[i]);
+  for var i := 1 to 6 do
+  begin
+    for var j := 1 to 8 do
+    begin
+      if abs(mas[i, j]) > 4 then 
+      begin
+        minus[i] := mas[i, j];
+        break
+      end;
+      
+    end;
+  end;
+  writeln('');
+  writeln('2 Массив:');
+  writeln('');
+  write(minus);
+end.
+var
+  a, b, c, y, ii: integer;
+  mas: array[1..6, 1..8] of integer;
+  minus: array[1..6] of integer;
+
+begin
+  for var k := 1 to 6 do 
+    minus[k] := 0;
+  randomize;
+var
+  a: array[1..8,1..6] of integer;
+  b: array[1..8] of integer;
+  i,j,s:integer;
+  begin
+   randomize;
+ 
+for i:=1 to 8 do begin
+for j:=1 to 6 do begin
+ 
+a[i,j]:=random(50)-3;
+end;
+end;
+writeln('1 Массив:');
+for i:=1 to 8 do
+  writeln(a[i]);
+
+for i:=1 to 8 do
+  begin
+  s:=0;
+  for j:=1 to 6 do
+    begin
+    if a[i,j] < 0 then
+      begin
+        s+=1;
+      end;
+    end;
+    if s>0 then
+      b[i]:=-1
+    else
+      b[i]:=1;
+  end;
+  writeln('');
+  writeln('2 Массив:');
+  write(b)
+end.
+var
+  a: array[1..8,1..8] of integer;
+  b: array[1..8] of integer;
+  i,j,s:integer;
+  begin
+   randomize;
+ 
+for i:=1 to 8 do begin
+for j:=1 to 8 do begin
+ 
+a[i,j]:=random(25)-3;
+end;
+end;
+writeln('1 Массив:');
+for i:=1 to 8 do
+  writeln(a[i]);
+
+for i:=1 to 8 do
+  begin
+  s:=0;
+  for j:=1 to 7 do
+    begin
+    if a[i,j] + a[i,j+1] = 7 then
+      begin
+        s+=1;
+        break;
+      end;
+    end;
+    if s=1 then
+      b[i]:=1
+    else
+      b[i]:=-1;
+  end;
+  writeln('');
+  writeln('2 Массив:');
+  
+  write(b)
+end.
